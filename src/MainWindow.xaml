@@ -9,11 +9,11 @@
         Title="gasby" Height="750" Width="1200">
     <Controls:MetroWindow.Resources>
         <ResourceDictionary>
-            <model:MainViewModel x:Key="model" />
+            <local:CompositionRoot x:Key="CompositionRoot"/>
         </ResourceDictionary>
     </Controls:MetroWindow.Resources>
     <Controls:MetroWindow.DataContext>
-        <Binding Source="{StaticResource model}" />
+        <Binding Source="{StaticResource CompositionRoot}" Path="ViewModel" />
     </Controls:MetroWindow.DataContext>
     <DockPanel LastChildFill="True">
         <StackPanel DockPanel.Dock="Bottom" Height="75" Orientation="Horizontal" Background="#FF3A3A3A">
