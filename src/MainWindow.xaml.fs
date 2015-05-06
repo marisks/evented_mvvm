@@ -20,6 +20,13 @@ type MainViewModel() as self =
     let defaultScore = { ScoreA = 0; ScoreB = 0}
     let mutable score = defaultScore
 
+    let scoreA = self.Factory.Backing(<@ self.ScoreA @>, "00")
+    let scoreB = self.Factory.Backing(<@ self.ScoreB @>, "00")
+
+    let updateScore () =
+        self.ScoreA <- score.ScoreA.ToString("D2")
+        self.ScoreB <- score.ScoreB.ToString("D2")
+
     let eventHandler ev =
         match ev with
         | IncA -> score <- {score with ScoreA = score.ScoreA + 1}
@@ -30,7 +37,7 @@ type MainViewModel() as self =
 
     do
         self.EventStream
-        |> Observable.subscribe eventHandler
+        |> Observable.subscribe (eventHandler >> updateScore)
         |> ignore
 
     member self.IncA = self.Factory.EventValueCommand(IncA)
@@ -39,5 +46,7 @@ type MainViewModel() as self =
     member self.DecB = self.Factory.EventValueCommand(DecB)
     member self.NewGame = self.Factory.EventValueCommand(New)
 
-    member self.ScoreA = score.ScoreA.ToString("D2")
-    member self.ScoreB = score.ScoreB.ToString("D2")
+    member self.ScoreA with get() = scoreA.Value 
+                        and set value = scoreA.Value <- value
+    member self.ScoreB with get() = scoreB.Value 
+                        and set value = scoreB.Value <- value
