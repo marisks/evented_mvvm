@@ -31,7 +31,7 @@
             <Border Background="#FF024D70" Grid.Column="0">
                 <Grid>
                     <Viewbox>
-                        <TextBlock Text="{Binding Score.ScoreA, StringFormat=D2}" FontFamily="Lucida Console" Margin="5" />
+                        <Label Content="{Binding Score.ScoreA}" ContentStringFormat="D2" FontFamily="Lucida Console"></Label>
                     </Viewbox>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                         <Button Command="{Binding DecA}"  Height="70" Width="70" VerticalAlignment="Bottom" Opacity="0.5" Margin="20">
@@ -46,7 +46,7 @@
             <Border Background="#FF7E0E03" Grid.Column="1">
                 <Grid>
                     <Viewbox>
-                        <TextBlock Text="{Binding Path=Score.ScoreB, StringFormat=D2}" FontFamily="Lucida Console" Margin="5"/>
+                        <Label Content="{Binding Score.ScoreB}" ContentStringFormat="D2"  FontFamily="Lucida Console"></Label>
                     </Viewbox>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                         <Button Command="{Binding DecB}"  Height="70" Width="70" VerticalAlignment="Bottom" Opacity="0.5" Margin="20">
