@@ -1,8 +1,7 @@
 ﻿<Controls:MetroWindow
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:local="clr-namespace:ViewModels;assembly=gasby.Wpf"
-        xmlns:model="clr-namespace:ViewModels;assembly=gasby.Wpf"
+        xmlns:local="clr-namespace:Views;assembly=gasby.Wpf"
         xmlns:fsx="clr-namespace:FsXaml;assembly=FsXaml.Wpf"
         xmlns:fsxaml="http://github.com/fsprojects/FsXaml"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
@@ -32,7 +31,7 @@
             <Border Background="#FF024D70" Grid.Column="0">
                 <Grid>
                     <Viewbox>
-                        <Label Content="{Binding ScoreA}" FontFamily="Lucida Console"></Label>
+                        <Label Content="{Binding Score.ScoreA}" ContentStringFormat="D2" FontFamily="Lucida Console"></Label>
                     </Viewbox>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                         <Button Command="{Binding DecA}"  Height="70" Width="70" VerticalAlignment="Bottom" Opacity="0.5" Margin="20">
@@ -47,7 +46,7 @@
             <Border Background="#FF7E0E03" Grid.Column="1">
                 <Grid>
                     <Viewbox>
-                        <Label Content="{Binding ScoreB}" FontFamily="Lucida Console"></Label>
+                        <Label Content="{Binding Score.ScoreB}" ContentStringFormat="D2"  FontFamily="Lucida Console"></Label>
                     </Viewbox>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                         <Button Command="{Binding DecB}"  Height="70" Width="70" VerticalAlignment="Bottom" Opacity="0.5" Margin="20">
